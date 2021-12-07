@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>POLICE PATROL THANYABURI</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- map -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="icon"
+        href="https://www.flaticon.com/svg/vstatic/svg/1022/1022331.svg?token=exp=1617182910~hmac=31d7394553d483019856580444bbb58c">
+</head>
+
+<body>
+    <!--แถบเมนู-->
+    <nav class="navbar sticky-top navbar-expand-lg  bg-brown">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="main.html">หน้าหลัก</a>
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                data-mdb-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item ">
+                        <!--ใส่ "nav-link active_link active" ใน class ใน a -->
+                        <a class="nav-link active" aria-current="page" href="table_user.html">บัญชีผู้ใช้</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="table_station.html">จุดตรวจ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="table_work.html">ข้อมูลเวร</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active_link active" aria-current="page" href="map.html">ตำแหน่ง</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-mdb-toggle="dropdown" aria-expanded="false">
+                            รายงาน
+                        </a>
+                        <!-- Dropdown menu -->
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="report_all.html">รายงานภาพรวม</a></li>
+                            <li><a class="dropdown-item" href="report_zone.html">รายงานเขต</a></li>
+                            <li><a class="dropdown-item" href="report_station.html">รายงานจุดตรวจ</a></li>
+                            <li><a class="dropdown-item" href="report_user.html">รายงานบุคคล</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="comment.html">คิวอาร์โค้ดชำรุด</a>
+                    </li>
+
+                </ul>
+                <i class="far fa-user-circle fa-lg" style="color: white;"></i><label class="nav-link" tabindex="-1"
+                    aria-disabled="true" style="color: white;" id="showadmin"></label>
+                <ul class="w-auto  mb-2 mb-lg-0">
+                    <a type="button" class="nav-link" tabindex="-1" aria-disabled="true" id="logout"
+                        onclick="logout">ออกจากระบบ</a>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- หัวข้อหน้า -->
+    <h3 class="mt-4" style="text-align: center;">ตำแหน่งผู้ปฏิบัติงาน</h3>
+
+
+    <div class="row mt-4">
+        <div class="col-md-2"></div>
+        <div class="col-md-8" style="height: 500px;">
+            <div id="map"></div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    <div class="row mt-4" style="height: 20px;">
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+            <img src="http://maps.google.com/mapfiles/ms/icons/blue-dot.png" alt="" style="height: 30px; width: 30px;">
+            <label for=""> = จุดตรวจ</label>
+            <br>
+            <img class="mt-2" src="img\pinmap-removebg-preview.png" alt="" style="height: 30px; width: 30px;">
+            <label for=""> = ผู้ปฏิบัติงาน</label>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <footer class="footer">
+        <!-- Copyright -->
+        <div class="text-center p-4" style="background-color: rgba(165, 42, 42, 0.9);  color: whitesmoke;">
+            ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+
+
+    <!-- MDB -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <!-- sweetalert สำหรับปุ่มแจ้งเตือน -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <!-- js firebase all in page -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-firestore.js"></script>
+    <script type="text/javascript" src="js/pagination_map.js"></script>
+    <!-- map -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB5JoZwsPv7R5ZD2y85R1Fza0ImGu1Ok0o&callback=initMap"
+        async defer></script>
+</body>
+
+</html>

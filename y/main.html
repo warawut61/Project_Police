@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>POLICE PATROL THANYABURI</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+  <!-- MDB -->
+  <link rel="stylesheet" href="css/mdb.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon"
+    href="https://www.flaticon.com/svg/vstatic/svg/1022/1022331.svg?token=exp=1617182910~hmac=31d7394553d483019856580444bbb58c">
+</head>
+
+<body>
+  <!--แถบเมนู-->
+  <nav class="navbar sticky-top navbar-expand-lg  bg-brown">
+    <div class="container-fluid">
+      <a class="navbar-brand active_link" href="main.html">หน้าหลัก</a>
+      <!-- Toggle button -->
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item ">
+            <!--ใส่ "nav-link active_link active" ใน class ใน a -->
+            <a class="nav-link active" aria-current="page" href="table_user.html">บัญชีผู้ใช้</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="table_station.html">จุดตรวจ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="table_work.html">ข้อมูลเวร</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="map.html">ตำแหน่ง</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-mdb-toggle="dropdown"
+              aria-expanded="false">
+              รายงาน
+            </a>
+            <!-- Dropdown menu -->
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="report_all.html">รายงานภาพรวม</a></li>
+              <li><a class="dropdown-item" href="report_zone.html">รายงานเขต</a></li>
+              <li><a class="dropdown-item" href="report_station.html">รายงานจุดตรวจ</a></li>
+              <li><a class="dropdown-item" href="report_user.html">รายงานบุคคล</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="comment.html">คิวอาร์โค้ดชำรุด</a>
+          </li>
+        </ul>
+        <i class="far fa-user-circle fa-lg" style="color: white;"></i><label class="nav-link" tabindex="-1"
+          aria-disabled="true" style="color: white;" id="showadmin"></label>
+
+        <ul class="w-auto  mb-2 mb-lg-0">
+          <a type="button" class="nav-link" tabindex="-1" aria-disabled="true" id="logout"
+            onclick="logout">ออกจากระบบ</a>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <h3 class="mt-4" style="text-align: center;">แจ้งเตือน</h3>
+
+  <!-- ตาราง  เลื่อนด้านข้าง-->
+  <div class="container-fluid table-responsive-xxl shadow mt-4" style="max-width: 95%;">
+    <div class="row mt-4"></div>
+    <!-- ปุ่มเพิ่มข้อมูล -->
+    <div class="container-fluid">
+      <div class="row mt-4">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-10">
+          <div class="input-group" style="position: relative; min-height: auto;">
+            <div style="position: absolute; right: 50px !important;">
+              <div class="form-outline" style="display: inline-flex;">
+                <input id="search-input" type="text" class="form-control" />
+                <label class="form-label" for="search-input">ค้นหาข้อมูลในตาราง</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table class="table table-striped mt-5" id="myTable">
+      <thead style="text-align: center;">
+        <tr>
+          <th>
+            <div onclick="sortTable(0)" type="button">ลำดับ <i class='fas fa-sort'></i></div>
+          </th>
+          <th>
+            <div>รูป </div>
+          </th>
+          <th>
+            <div>ชื่อสถานที่ และเขต </div>
+          </th>
+          <th>
+            <div>ที่อยู่ </div>
+          </th>
+          <th>
+            <div>นามเรียกขาน </div>
+          </th>
+          <th>
+            <div>ชื่อผู้ตรวจ </div>
+          </th>
+          <th>
+            <div>วันที่ตรวจ</div>
+          </th>
+          <th>
+            <div>เวลาตรวจ</div>
+          </th>
+          <th>
+            <div>ละติจูด, ลองจิจูด(ผู้ตรวจ)</div>
+          </th>
+          <th>
+            <div>ชื่อผู้ใช้</div>
+          </th>
+        </tr>
+      </thead>
+      <tbody id="table-body" style="text-align: center; ">
+
+      </tbody>
+    </table>
+    <div class="container-fluid">
+      <div id="pagination-wrapper"></div>
+    </div>
+    <div class="row mt-4"></div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <footer class="footer ">
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(165, 42, 42, 0.9);  color: whitesmoke;">
+      ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <script>
+
+
+    function myFunction() {
+      // Declare variables
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+
+
+    /*เรียงตาราง */
+    function sortTable(n) {
+      var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+      table = document.getElementById("myTable");
+      switching = true;
+      // Set the sorting direction to ascending:
+      dir = "asc";
+      /* Make a loop that will continue until
+      no switching has been done: */
+      while (switching) {
+        // Start by saying: no switching is done:
+        switching = false;
+        rows = table.rows;
+        /* Loop through all table rows (except the
+        first, which contains table headers): */
+        for (i = 1; i < (rows.length - 1); i++) {
+          // Start by saying there should be no switching:
+          shouldSwitch = false;
+          /* Get the two elements you want to compare,
+          one from current row and one from the next: */
+          x = rows[i].getElementsByTagName("TD")[n];
+          y = rows[i + 1].getElementsByTagName("TD")[n];
+          /* Check if the two rows should switch place,
+          based on the direction, asc or desc: */
+          if (dir == "asc") {
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+              // If so, mark as a switch and break the loop:
+              shouldSwitch = true;
+              break;
+            }
+          } else if (dir == "desc") {
+            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+              // If so, mark as a switch and break the loop:
+              shouldSwitch = true;
+              break;
+            }
+          }
+        }
+        if (shouldSwitch) {
+          /* If a switch has been marked, make the switch
+          and mark that a switch has been done: */
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+          // Each time a switch is done, increase this count by 1:
+          switchcount++;
+        } else {
+          /* If no switching has been done AND the direction is "asc",
+          set the direction to "desc" and run the while loop again. */
+          if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+          }
+        }
+      }
+    }
+
+  </script>
+
+  <!-- MDB -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+  <!-- js firebase all in page -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-firestore.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

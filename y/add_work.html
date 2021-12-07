@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>POLICE PATROL THANYABURI</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/datepicker.css" />
+    <link rel="icon" href="https://www.flaticon.com/svg/vstatic/svg/1022/1022331.svg?token=exp=1617182910~hmac=31d7394553d483019856580444bbb58c">
+</head>
+
+<style>
+    .datepicker-months .table-condensed thead {
+        visibility: hidden;
+    }
+
+    .datepicker-days .table-condensed thead tr:nth-child(2) {
+        display: none;
+    }
+</style>
+
+<body>
+    <div class="add_workbox">
+        <div class="workboxcontant">
+            <h2 class="mt-4" style="text-align: center;">กรอกข้อมูลเวร</h2>
+            <form id="form">
+                <div class="row mt-4">
+                    <div class="col-md-4">
+                        <label class="" for="">ชุดปฏิบัติการ</label>
+                        <select type="text" id="group" class="form-control">
+                            <option value="">- เลือกชุดปฏิบัติการ - -</option>
+                            <option value="1">ชุดปฏิบัติการที่ 1</option>
+                            <option value="2">ชุดปฏิบัติการที่ 2</option>
+                            <option value="3">ชุดปฏิบัติการที่ 3</option>
+                            <option value="4">ชุดปฏิบัติการที่ 4</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="e_datetime">เดือนที่เข้าเวร</label>
+                        <input class="form-control" type="month" id="months" required>
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-4">
+                        <br>
+                        <label for="" class="form-control">ผลัดเช้า เวลา 08:01 - 16:00 น.</label>
+                    </div>
+                    <div class="col-md-6 dateonly">
+                        <label for="e_datetime">วันที่เข้าเวร (สำหรับผลัดเช้า) </label>
+                        <div class="input-group date form-group" id="datepicker1">
+                            <input type="text" class="form-control" id="Datessec1" name="Dates"
+                                placeholder="เลือกวันที่ ในการเข้าเวร" required />
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-4">
+                        <br>
+                        <label for="" class="form-control">ผลัดบ่าย เวลา 16:01 - 23:59 น.</label>
+                    </div>
+                    <div class="col-md-6 dateonly">
+                        <label for="e_datetime">วันที่เข้าเวร (สำหรับผลัดบ่าย) </label>
+                        <div class="input-group date form-group" id="datepicker2">
+                            <input type="text" class="form-control" id="Datessec2" name="Dates"
+                                placeholder="เลือกวันที่ ในการเข้าเวร" required />
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-4">
+                        <br>
+                        <label for="" class="form-control">ผลัดดึก เวลา 00:01 - 08:00 น.</label>
+                    </div>
+                    <div class="col-md-6 dateonly">
+                        <label for="e_datetime">วันที่เข้าเวร (สำหรับผลัดดึก) </label>
+                        <div class="input-group date form-group" id="datepicker3">
+                            <input type="text" class="form-control" id="Datessec3" name="Dates"
+                                placeholder="เลือกวันที่ ในการเข้าเวร" required />
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- ปุ่มยกเลิก,reset,ตกลง -->
+                <div class="row mt-4">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-8" style="text-align:center; min-width: 350px;">
+                        <button type="button" id="cancel" class="btn btn-outline-danger btn-banger"
+                            data-mdb-ripple-color="dark">
+                            ยกเลิก
+                        </button>
+                        <input class="btn btn-primary" type="reset" id="reset" value="Reset" />
+                        <button type="button" class="btn btn-success" id="save">บันทึก</button>
+
+                    </div>
+                    <div class="col-md-2"> </div>
+                </div>
+            </form>
+            <div class="row mt-1" style="text-align: right; margin-right: 20px;">
+                <label">หมายเหตุ :
+                    ไม่สามารถเลือกวันเข้าเวรซ้ำได้</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- MDB -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="js/datepicker.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- js firebase all in page -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-firestore.js"></script>
+    <script src="js/addwork.js"></script>
+
+</body>
+
+</html>

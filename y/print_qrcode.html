@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>POLICE PATROL THANYABURI</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="https://www.flaticon.com/svg/vstatic/svg/1022/1022331.svg?token=exp=1617182910~hmac=31d7394553d483019856580444bbb58c">
+</head>
+
+<body>
+
+<div class="row mt-5" id="NameStation"></div>
+<div class="row mt-4">
+    <div class="col-md-3"></div>
+    <div class="col-md-6" style="text-align: center;">
+        <a id="link" href="#">
+            <img id="chart" src="" alt="QR code" /></a>
+            <div class="mt-4"><button class="btn btn-primary shadow noPrint" onclick="window.print();">พิมพ์</button></div>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
+<div class="mt-4" style="text-align: center;" id="qrcode"></div>
+    <!-- MDB bootstap libery for css -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- jqery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <!-- เชื่อม firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-firestore.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript"></script>
+    <script src="js/print_qrcode.js"></script>
+</body>
+
+</html>

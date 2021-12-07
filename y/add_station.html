@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: brown;">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>POLICE PATROL THANYABURI</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- map -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="icon" href="https://www.flaticon.com/svg/vstatic/svg/1022/1022331.svg?token=exp=1617182910~hmac=31d7394553d483019856580444bbb58c">
+</head>
+
+<body>
+
+
+    <div class="add_stationbox">
+        <div class="stationboxcontant">
+            <h2 class="mt-4" style="text-align: center;">กรอกข้อมูลจุดตรวจ</h2>
+            <form id="form">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <label class=" " for="form1">ชื่อสถานที่</label>
+                                <input type="text" id="namestation" class="form-control" placeholder="กรอกชื่อสถานที่"
+                                    onblur="this.value=removeSpaces(this.value);" />
+                            </div>
+                            <div class="col-md-3">
+                                <label class=" " for="form1">เขตตรวจ</label>
+                                <select type="text" id="key_station" class="form-control">
+                                    <option value="">- - เลือกเขต - -</option>
+                                    <option value="121">เขตตรวจที่ 121</option>
+                                    <option value="122">เขตตรวจที่ 122</option>
+                                    <option value="123">เขตตรวจที่ 123</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <label class=" " for="form1">ละติจูด</label>
+                                <input type="text" id="latitude" class="form-control"
+                                    placeholder="เลือกละติจูดจากแผนที่ด้านขวา"
+                                    onblur="this.value=removeSpaces(this.value);" disabled />
+                            </div>
+                            <div class="col-md-6">
+                                <label class=" " for="form1">ลองจิจูด</label>
+                                <input type="text" id="longitude" class="form-control"
+                                    placeholder="เลือกลองจิจูดจากแผนที่ด้านขวา"
+                                    onblur="this.value=removeSpaces(this.value);" disabled />
+                            </div>
+                        </div>
+                        <br>
+                        <hr>
+                        <div class="row mt-4">
+                            <div class="col-md-3">
+                                <label class=" " for="form1">เลขที่</label>
+                                <input type="text" id="numhome" class="form-control" placeholder="กรอกบ้านเลขที่"
+                                    onblur="this.value=removeSpaces(this.value);" />
+                            </div>
+                            <div class="col-md-3">
+                                <label class=" " for="form1">หมู่ที่</label>
+                                <input type="text" id="nummo" class="form-control" placeholder="กรอกหมู่ที่"
+                                    onblur="this.value=removeSpaces(this.value);" />
+                            </div>
+                            <div class="col-md-3">
+                                <label class=" " for="form1">ซอย</label>
+                                <input type="text" id="numsoi" class="form-control" placeholder="กรอกซอย"
+                                    onblur="this.value=removeSpaces(this.value);" />
+                            </div>
+                            <div class="col-md-3">
+                                <label class=" " for="form1">ตำบล</label>
+                                <input type="text" id="tumbon" class="form-control" placeholder="กรอกตำบล"
+                                    onblur="this.value=removeSpaces(this.value);" />
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-3">
+                                <label class=" " for="form1">อำเภอ</label>
+                                <input type="text" id="District" class="form-control" value="ธัญบุรี"
+                                     disabled />
+                            </div>
+                            <div class="col-md-3">
+                                <label class=" " for="form1">จังหวัด</label>
+                                <input type="text" id="province" class="form-control" value="ปทุมธานี"
+                                     disabled />
+                            </div>
+                            <div class="col-md-3">
+                                <label class=" " for="form1">รหัสไปรษณีย์</label>
+                                <input type="tel" id="postal_code" class="form-control" maxlength="5" value="12120"
+                                     disabled />
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-5 mt-4" style="min-height: 400px;">
+                        <input id="searchInput" class="form-control" type="text" placeholder="ค้นหาสถานที่" onblur="this.value=removeSpaces(this.value);">
+                        <!-- Google map -->
+                        <div id="map"></div>
+                    </div>
+                </div>
+                <!-- ปุ่มยกเลิก,reset,ตกลง -->
+                <div class="row mt-4">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-8" style="text-align:center; min-width: 350px;">
+                        <button type="button" id="cancel" class="btn btn-outline-danger btn-banger"
+                            data-mdb-ripple-color="dark">
+                            ยกเลิก
+                        </button>
+                        <input class="btn btn-primary" type="reset" id="reset" value="Reset" />
+                        <button type="button" class="btn btn-success" id="save">บันทึก</button>
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+            </form>
+            <div class="row mt-1" style="text-align: right; margin-right: 20px;">
+                <label">หมายเหตุ :
+                    ไม่มีข้อมูลกรุณาใส่เครื่องหมาย " - "</label>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- MDB -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- js firebase all in page -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-firestore.js"></script>
+    <script src="js/addstation.js"></script>
+
+    <!-- map -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB5JoZwsPv7R5ZD2y85R1Fza0ImGu1Ok0o&callback=initMap"
+        async defer></script>
+</body>
+
+</html>

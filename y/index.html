@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>POLICE PATROL THANYABURI</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+  <!-- MDB -->
+  <link rel="stylesheet" href="css/mdb.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="https://www.flaticon.com/svg/vstatic/svg/1022/1022331.svg?token=exp=1617182910~hmac=31d7394553d483019856580444bbb58c">
+</head>
+
+<body >
+  <div class="loginBox" >
+    <h1 class="mt-4" style="min-width: 350px; color: #ffffff; text-align: center; ">ระบบบริการเจ้าหน้าที่ตำรวจ</h1>
+    <div class="loginBoxContent">
+        <h2>เข้าสู่ระบบ</h2>
+        <img style="height: 200px;"
+          src="img\pngtree-interpol-police-perform-tasks-holding-pistols-image_1204294-removebg-preview.png" alt=""
+          srcset="">
+
+      <form style="text-align: left;">
+        <!-- Email input -->
+        <label class="form-label" for="username">ชื่อผู้ใช้</label>
+        <input type="text" id="username" class="form-control" placeholder="กรอกชื่อผู้ใช้" onblur="this.value=removeSpaces(this.value);"/>
+
+
+        <!-- Password input -->
+        <label class="form-label mt-4" for="username">รหัสผ่าน</label>
+        <div class="input-group ">
+          <input id="password" type="password" class="form-control" placeholder="รหัสผ่าน"
+            aria-label="Recipient's username" aria-describedby="button-addon2" onblur="this.value=removeSpaces(this.value);"/>
+          <button class="btn btn-outline-primary" type="button" id="viewpassword" data-mdb-ripple-color="dark">
+            <i class="fas fa-eye-slash"></i>
+          </button>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-12" style="text-align: right;margin-right: 10px;">
+            <!-- Simple link -->
+            ลืมรหัสผ่านใช่ หรือไม่?<a style="color: blue;"  type="button" id="calladmin"> ติอต่อเจ้าหน้าที่</a>
+          </div>
+        </div>
+        <!-- Submit button -->
+        <button id="submit" type="submit" class="btn btn-primary btn-block mt-4">เข้าสู่ระบบ</button>
+      </form>
+
+    </div>
+    <footer class="footer" >
+      <!-- Copyright -->
+      <div class="text-center p-4" >
+        ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี
+      </div>
+      <!-- Copyright -->
+    </footer>
+  </div>
+
+
+
+
+
+
+  <!-- MDB bootstap libery for css -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- jqery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+  <!-- เชื่อม firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-firestore.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <!-- Custom scripts -->
+  <script type="text/javascript"></script>
+  <script src="js/login.js"></script>
+
+</body>
+
+</html>
